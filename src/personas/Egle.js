@@ -3,17 +3,17 @@ import Invalid from './Invalid';
 import './persona.css'
 import personas from './index.json'
 
-function Jinnie() {
+function Egle() {
 
     React.useEffect(() => {
         for( var pers in personas){
         
-            if(personas[pers].name === "jinnie"){
+            if(personas[pers].name === "egle"){
                 setCode(personas[pers].code)
                 setStory(personas[pers].story)
             }
             }
-    },[]);
+    }, []);
 
     const [code, setCode] = React.useState('');
     const [story, setStory] = React.useState('');
@@ -31,4 +31,4 @@ function Jinnie() {
     }
 }
 
-export default Jinnie;
+export default Egle;

@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import mansion from './img/mansion.jfif'
 import tree from './img/tree.jpeg'
+import personas from './personas/index.json'
 
 function App() {
 
@@ -9,9 +10,37 @@ function App() {
     localStorage.clear()
   });
 
-  function onClick(e){
-    localStorage.setItem("code", "jinnie")
-    window.location.href="jinnie"
+  const [code, setCode] = useState('');
+  const [error, setError] = useState('');
+
+  function onClick(){
+    if(!code){
+      setError("Empty code")
+      return
+    }
+    setError("")
+
+    let personaIdentifdied = ''
+
+    for( var pers in personas){
+      
+      if(personas[pers].code === code){
+        personaIdentifdied = personas[pers].name
+      }
+    }
+
+    if(!personaIdentifdied){
+      setError("Invalid code")
+    }else{
+      setError("")
+    }
+
+    localStorage.setItem("code", code)
+    window.location.href=personaIdentifdied
+  }
+
+  function onChange(e){
+    setCode(e.target.value)
   }
 
   return (
@@ -27,12 +56,15 @@ function App() {
             Please put your passcode to see your role
           </h4>
 
-          <input>
+          <input onChange={onChange}>
           </input>
 
           <button onClick={onClick}>
             Go
           </button>
+          <div>
+            {error}
+          </div>
         </section>
         <br />
 
