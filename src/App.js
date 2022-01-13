@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import mansion from './img/mansion.jfif'
+import tree from './img/tree.jpeg'
 
 function App() {
 
@@ -19,7 +20,6 @@ function App() {
         <h2>
           Welcome to JLau's Murder Mystery Party
         </h2>
-
         <img width="100%" alt="mansion" src={mansion}/>
 
         <section>
@@ -34,6 +34,9 @@ function App() {
             Go
           </button>
         </section>
+        <br />
+
+        <img width="100%" style={{width:'100%'}} alt="mansion" src={tree}/>
 
       </div>
     </div>
