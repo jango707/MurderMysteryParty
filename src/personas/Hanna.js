@@ -21,7 +21,7 @@ function Hanna() {
     if(localStorage.getItem("code") === code){
         return (
             <div className="persona">
-                {story}
+                 <a href="/">Return home</a><br />{story}
             </div>
         );
     }else{
