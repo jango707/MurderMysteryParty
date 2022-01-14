@@ -1,0 +1,8 @@
+[build]
+  Functions = "functions"
+  Publish = "build"
+  Command = "npm run build"
+
+[[redirects]]
+  from = "/*"
+  status = 200
