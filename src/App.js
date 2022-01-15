@@ -7,18 +7,18 @@ import personas from './personas/index.json'
 function App() {
 
   React.useEffect(() => {
-    localStorage.clear()
+    //localStorage.clear()
   });
 
   const [code, setCode] = useState('');
   const [error, setError] = useState('');
 
   function onClick(){
+    var _code= code
     if(!code){
       setError("Empty code")
       return
     }
-    setError("")
 
     let personaIdentifdied = ''
 
@@ -33,10 +33,10 @@ function App() {
       setError("Invalid code")
     }else{
       setError("")
+      localStorage.setItem("code", _code)
+      window.location.href=personaIdentifdied
     }
 
-    localStorage.setItem("code", code)
-    window.location.href=personaIdentifdied
   }
 
   function onChange(e){

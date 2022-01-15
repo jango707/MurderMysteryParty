@@ -21,7 +21,7 @@ function Steven() {
     if(localStorage.getItem("code") === code){
         return (
             <div className="persona">
-                 <a href="/">Return home</a><br />{story}
+                 <a href="/">Return home</a><br /><div dangerouslySetInnerHTML={{__html: story}} />
             </div>
         );
     }else{
