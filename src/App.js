@@ -7,40 +7,44 @@ import personas from './personas/index.json'
 function App() {
 
   React.useEffect(() => {
-    //localStorage.clear()
+    localStorage.clear()
   });
 
   const [code, setCode] = useState('');
   const [error, setError] = useState('');
 
   function onClick(){
-    var _code= code
+    var error = false
     if(!code){
       setError("Empty code")
-      return
+      error = true
     }
 
-    let personaIdentifdied = ''
+    if(!error){
 
-    for( var pers in personas){
-      
-      if(personas[pers].code === code){
-        personaIdentifdied = personas[pers].name
+      let personaIdentifdied = ''
+
+      for( var pers in personas){
+        
+        if(personas[pers].code === code){
+          personaIdentifdied = personas[pers].name
+        }
       }
-    }
 
-    if(!personaIdentifdied){
-      setError("Invalid code")
-    }else{
-      setError("")
-      localStorage.setItem("code", _code)
-      window.location.href=personaIdentifdied
-    }
+      if(!personaIdentifdied){
+        setError("Invalid code")
+      }else{
+        setError("")
+        localStorage.setItem("code", code)
+        window.location.href=personaIdentifdied
+      }
 
+    }
   }
 
   function onChange(e){
     setCode(e.target.value)
+    setError("")
   }
 
   return (
